@@ -5,10 +5,12 @@ import java.awt.*;
 
 public class MusicCatalogue {
     JFrame mainFrame;
+    JPanel sidePanel;
+    String[] categories = {"Reggae", "Ballads", "Rap"};
     public MusicCatalogue() {
         this.prepareLayoutBorder();
         this.prepareHeader();
-
+        this.prepareSidePanel();
     }
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
@@ -35,6 +37,19 @@ public class MusicCatalogue {
         return  mainFrame;
     }
 
+    public JFrame prepareSidePanel(){
+        sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
+        sidePanel.setBackground(new Color(255, 255, 233));
 
+        for (String category : categories) {
+            JButton btn = new JButton(category);
+            btn.setBackground(new Color(10, 50, 80));
+            btn.setForeground(Color.WHITE);
+            sidePanel.add(btn);
+        }
+        mainFrame.add(sidePanel, BorderLayout.WEST);
+
+        return mainFrame;
+    }
 
 }
