@@ -40,7 +40,7 @@ public class MusicCatalogue {
     public JFrame prepareSidePanel(){
         sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
         sidePanel.setBackground(new Color(255, 255, 233));
-
+        sidePanel.setPreferredSize(new Dimension(100, 2));
         for (String category : categories) {
             JButton btn = new JButton(category);
             btn.setBackground(new Color(10, 50, 80));
