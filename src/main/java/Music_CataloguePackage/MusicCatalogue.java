@@ -5,14 +5,15 @@ import java.awt.*;
 
 public class MusicCatalogue {
     JFrame mainFrame;
-    JPanel sidePanel;
+    JPanel sidePanel, bottomPanel;
     String[] categories = {"Reggae", "Ballads", "Rap"};
-
+    JButton submitButton, exitButton;
 
     public MusicCatalogue() {
         this.prepareLayoutBorder();
         this.prepareHeader();
         this.prepareSidePanel();
+        this.prepareBottomPanel();
     }
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
@@ -53,6 +54,26 @@ public class MusicCatalogue {
 
         return mainFrame;
     }
+    public JFrame prepareBottomPanel() {
+        bottomPanel = new JPanel();
+        bottomPanel.setBackground(new Color(217,  217,217));
+        submitButton = new JButton("Submit");
+        exitButton = new JButton("Exit");
+        bottomPanel.setPreferredSize(new Dimension(800, 50));
+        submitButton.setBackground(new Color(3, 60, 91));
+        submitButton.setForeground(Color.WHITE);
+        exitButton.setBackground(new Color(3, 60, 91));
+        // Styling Buttons
+        Font buttonFont = new Font("Arial", Font.BOLD, 16);
+        submitButton.setFont(buttonFont);
+        exitButton.setFont(buttonFont);
 
+        exitButton.setForeground(Color.WHITE);
+
+        bottomPanel.add(submitButton);
+        bottomPanel.add(exitButton);
+        mainFrame.add(bottomPanel, BorderLayout.SOUTH);
+    return mainFrame;
+    }
 
 }
