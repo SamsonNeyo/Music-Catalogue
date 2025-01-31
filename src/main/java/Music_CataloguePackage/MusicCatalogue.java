@@ -7,6 +7,8 @@ public class MusicCatalogue {
     JFrame mainFrame;
     JPanel sidePanel;
     String[] categories = {"Reggae", "Ballads", "Rap"};
+
+
     public MusicCatalogue() {
         this.prepareLayoutBorder();
         this.prepareHeader();
@@ -15,7 +17,7 @@ public class MusicCatalogue {
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(600, 500);
+        mainFrame.setSize(800, 600);
         mainFrame.setLayout(new BorderLayout());
 
         mainFrame.setVisible(true);
@@ -51,5 +53,6 @@ public class MusicCatalogue {
 
         return mainFrame;
     }
+
 
 }
