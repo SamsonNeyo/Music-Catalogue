@@ -4,22 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MusicCatalogue {
-    JFrame mainFrame;
-    JPanel sidePanel;
-    String[] categories = {"Reggae", "Ballads", "Rap"};
+    private JFrame mainFrame;
+    private JPanel sidePanel, bottomPanel,centerPanel;
+    private String[] categories = {"Reggae", "Ballads", "Rap"};
+    private JButton submitButton, exitButton;
+    private JComboBox<String> genreDropdown;
+    private JCheckBox availableCheckBox;
+
     public MusicCatalogue() {
         this.prepareLayoutBorder();
         this.prepareHeader();
         this.prepareSidePanel();
+        this.prepareBottomPanel();
     }
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        mainFrame.setSize(800, 500);
-
         mainFrame.setSize(800, 600);
-
         mainFrame.setLayout(new BorderLayout());
 
         mainFrame.setVisible(true);
@@ -44,7 +45,7 @@ public class MusicCatalogue {
     public JFrame prepareSidePanel(){
         sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
         sidePanel.setBackground(new Color(255, 255, 233));
-
+        sidePanel.setPreferredSize(new Dimension(100, 5));
         for (String category : categories) {
             JButton btn = new JButton(category);
             btn.setBackground(new Color(10, 50, 80));
@@ -55,5 +56,25 @@ public class MusicCatalogue {
 
         return mainFrame;
     }
+    public JFrame prepareBottomPanel() {
+        bottomPanel = new JPanel();
+        bottomPanel.setBackground(new Color(217,  217,217));
+        submitButton = new JButton("Submit");
+        exitButton = new JButton("Exit");
+        bottomPanel.setPreferredSize(new Dimension(800, 55));
+        submitButton.setBackground(new Color(3, 60, 91));
+        submitButton.setForeground(Color.WHITE);
+        exitButton.setBackground(new Color(3, 60, 91));
+        // Styling Buttons
+        Font buttonFont = new Font("Arial", Font.BOLD, 16);
+        submitButton.setFont(buttonFont);
+        exitButton.setFont(buttonFont);
 
+        exitButton.setForeground(Color.WHITE);
+
+        bottomPanel.add(submitButton);
+        bottomPanel.add(exitButton);
+        mainFrame.add(bottomPanel, BorderLayout.SOUTH);
+    return mainFrame;
+    }
 }
