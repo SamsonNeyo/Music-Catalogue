@@ -10,12 +10,15 @@ public class MusicCatalogue {
     private JButton submitButton, exitButton;
     private JComboBox<String> genreDropdown;
     private JCheckBox availableCheckBox;
+    private JTextField artistField, studioField;
+
 
     public MusicCatalogue() {
         this.prepareLayoutBorder();
         this.prepareHeader();
         this.prepareSidePanel();
         this.prepareBottomPanel();
+        this.prepareCenterPanel();
     }
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
@@ -76,5 +79,46 @@ public class MusicCatalogue {
         bottomPanel.add(exitButton);
         mainFrame.add(bottomPanel, BorderLayout.SOUTH);
     return mainFrame;
+    }
+    public void prepareCenterPanel() {
+        centerPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+        centerPanel.setBackground(new Color(10, 50, 80)); // Darker Blue
+
+        // Labels
+        JLabel artistLabel = new JLabel("Artist Name:");
+        JLabel studioLabel = new JLabel("Recording Studio:");
+        JLabel genreLabel = new JLabel("Genre:");
+        JLabel availableLabel = new JLabel("Available:");
+
+        // Inputs
+        artistField = new JTextField();
+        studioField = new JTextField();
+        String[] genres = {"Reggae", "Ballads", "Rap"};
+        genreDropdown = new JComboBox<>(genres);
+        availableCheckBox = new JCheckBox();
+
+        // Styling Labels
+        Font labelFont = new Font("Arial", Font.BOLD, 14);
+        Color labelColor = Color.WHITE;
+        artistLabel.setFont(labelFont);
+        artistLabel.setForeground(labelColor);
+        studioLabel.setFont(labelFont);
+        studioLabel.setForeground(labelColor);
+        genreLabel.setFont(labelFont);
+        genreLabel.setForeground(labelColor);
+        availableLabel.setFont(labelFont);
+        availableLabel.setForeground(labelColor);
+
+        // Add to Center Panel
+        centerPanel.add(artistLabel);
+        centerPanel.add(artistField);
+        centerPanel.add(studioLabel);
+        centerPanel.add(studioField);
+        centerPanel.add(genreLabel);
+        centerPanel.add(genreDropdown);
+        centerPanel.add(availableLabel);
+        centerPanel.add(availableCheckBox);
+
+        mainFrame.add(centerPanel, BorderLayout.CENTER);
     }
 }
