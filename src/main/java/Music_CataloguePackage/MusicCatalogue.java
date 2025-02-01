@@ -4,10 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MusicCatalogue {
-    JFrame mainFrame;
-    JPanel sidePanel, bottomPanel;
-    String[] categories = {"Reggae", "Ballads", "Rap"};
-    JButton submitButton, exitButton;
+    private JFrame mainFrame;
+    private JPanel sidePanel, bottomPanel,centerPanel;
+    private String[] categories = {"Reggae", "Ballads", "Rap"};
+    private JButton submitButton, exitButton;
+    private JTextField artistField,studioField;
+    private JComboBox<String> genreDropdown;
+    private JCheckBox availableCheckBox;
 
     public MusicCatalogue() {
         this.prepareLayoutBorder();
@@ -75,5 +78,4 @@ public class MusicCatalogue {
         mainFrame.add(bottomPanel, BorderLayout.SOUTH);
     return mainFrame;
     }
-
 }
