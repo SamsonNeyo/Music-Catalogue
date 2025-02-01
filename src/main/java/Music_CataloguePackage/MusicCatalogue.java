@@ -7,47 +7,50 @@ import java.awt.event.ActionListener;
 
 public class MusicCatalogue {
     private JFrame mainFrame;
-    private JPanel sidePanel, bottomPanel,centerPanel;
+    private JPanel sidePanel, bottomPanel, centerPanel;
     private String[] categories = {"Reggae", "Ballads", "Rap"};
     private JButton submitButton, exitButton;
     private JComboBox<String> genreDropdown;
     private JCheckBox availableCheckBox;
     private JTextField artistField, studioField;
 
-
     public MusicCatalogue() {
         this.prepareLayoutBorder();
         this.prepareHeader();
         this.prepareSidePanel();
         this.prepareBottomPanel();
-        this.prepareCenterPanel();
+        this.prepareCenterPanel(); // Make sure this is called before setting visibility
+
+        // Ensure all components are updated
+        mainFrame.revalidate();
+        mainFrame.repaint();
+
+        // Move visibility setting to the end
+        mainFrame.setVisible(true);
     }
+
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(600, 400);
         mainFrame.setLayout(new BorderLayout());
 
-        mainFrame.setVisible(true);
         return mainFrame;
     }
 
-
-    //method for a header NORTH
     public JFrame prepareHeader() {
-        // Top Panel (NORTH) - Title
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(new Color(217,217,217));
+        topPanel.setBackground(new Color(217, 217, 217));
         topPanel.setPreferredSize(new Dimension(600, 50));
         JLabel titleLabel = new JLabel("My Music Catalogue");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         topPanel.add(titleLabel);
         mainFrame.add(topPanel, BorderLayout.NORTH);
 
-        return  mainFrame;
+        return mainFrame;
     }
 
-    public JFrame prepareSidePanel(){
+    public JFrame prepareSidePanel() {
         sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
         sidePanel.setBackground(new Color(255, 255, 233));
         sidePanel.setPreferredSize(new Dimension(100, 5));
@@ -61,15 +64,17 @@ public class MusicCatalogue {
 
         return mainFrame;
     }
+
     public JFrame prepareBottomPanel() {
         bottomPanel = new JPanel();
-        bottomPanel.setBackground(new Color(217,  217,217));
+        bottomPanel.setBackground(new Color(217, 217, 217));
         submitButton = new JButton("Submit");
         exitButton = new JButton("Exit");
         bottomPanel.setPreferredSize(new Dimension(800, 55));
         submitButton.setBackground(new Color(3, 60, 91));
         submitButton.setForeground(Color.WHITE);
         exitButton.setBackground(new Color(3, 60, 91));
+
         // Styling Buttons
         Font buttonFont = new Font("Arial", Font.BOLD, 16);
         submitButton.setFont(buttonFont);
@@ -102,11 +107,15 @@ public class MusicCatalogue {
             }
         });
 
-       return mainFrame;
+        return mainFrame;
     }
+
     public void prepareCenterPanel() {
         centerPanel = new JPanel(new GridLayout(4, 2, 10, 10));
         centerPanel.setBackground(new Color(10, 50, 80)); // Darker Blue
+
+        // Explicitly set preferred size to ensure visibility
+        centerPanel.setPreferredSize(new Dimension(400, 200));
 
         // Labels
         JLabel artistLabel = new JLabel("Artist Name:");
@@ -117,8 +126,7 @@ public class MusicCatalogue {
         // Inputs
         artistField = new JTextField();
         studioField = new JTextField();
-        String[] genres = {"Reggae", "Ballads", "Rap"};
-        genreDropdown = new JComboBox<>(genres);
+        genreDropdown = new JComboBox<>(categories);
         availableCheckBox = new JCheckBox();
 
         // Styling Labels
@@ -145,4 +153,5 @@ public class MusicCatalogue {
 
         mainFrame.add(centerPanel, BorderLayout.CENTER);
     }
+
 }
