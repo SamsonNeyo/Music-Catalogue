@@ -62,7 +62,7 @@ public class MusicCatalogue {
         bottomPanel.setBackground(new Color(217,  217,217));
         submitButton = new JButton("Submit");
         exitButton = new JButton("Exit");
-        bottomPanel.setPreferredSize(new Dimension(800, 52));
+        bottomPanel.setPreferredSize(new Dimension(800, 55));
         submitButton.setBackground(new Color(3, 60, 91));
         submitButton.setForeground(Color.WHITE);
         exitButton.setBackground(new Color(3, 60, 91));
