@@ -2,6 +2,8 @@ package Music_CataloguePackage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MusicCatalogue {
     private JFrame mainFrame;
@@ -78,7 +80,29 @@ public class MusicCatalogue {
         bottomPanel.add(submitButton);
         bottomPanel.add(exitButton);
         mainFrame.add(bottomPanel, BorderLayout.SOUTH);
-    return mainFrame;
+
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String artistName = artistField.getText();
+                String studioName = studioField.getText();
+                String genre = (String) genreDropdown.getSelectedItem();
+                boolean isAvailable = availableCheckBox.isSelected();
+
+                System.out.println("Artist Name: " + artistName);
+                System.out.println("Recording Studio: " + studioName);
+                System.out.println("Category: " + genre);
+                System.out.println("Available: " + isAvailable);
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+       return mainFrame;
     }
     public void prepareCenterPanel() {
         centerPanel = new JPanel(new GridLayout(4, 2, 10, 10));
