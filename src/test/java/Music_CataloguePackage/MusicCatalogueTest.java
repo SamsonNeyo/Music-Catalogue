@@ -28,14 +28,16 @@ class MusicCatalogueTest {
         assertNotNull(frame);
         assertEquals("Music Catalogue", frame.getTitle());
         assertEquals(800, frame.getWidth());
-        assertEquals(500, frame.getHeight());
+        assertEquals(600, frame.getHeight());
         assertTrue(frame.isVisible());
 
 
     }
 
 
+
     @Test
+
     void prepareHeader() {
         JFrame frame = musicCatalogue.prepareHeader();
         assertNotNull(frame, "Frame should not be null");
@@ -45,6 +47,7 @@ class MusicCatalogueTest {
         JLabel titleLabel = (JLabel) topPanel.getComponent(0);
         assertEquals("My Music Catalogue", titleLabel.getText(), "Title label should have correct text");
     }
+
 
     @Test
     void prepareSidePanel() {
@@ -63,4 +66,7 @@ class MusicCatalogueTest {
         }
     }
 }
+
+
+
 
