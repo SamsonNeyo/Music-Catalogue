@@ -15,7 +15,7 @@ public class MusicCatalogue {
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(600, 500);
+        mainFrame.setSize(800, 500);
         mainFrame.setLayout(new BorderLayout());
 
         mainFrame.setVisible(true);
