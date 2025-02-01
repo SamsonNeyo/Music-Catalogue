@@ -25,7 +25,7 @@ public class MusicCatalogue {
     public JFrame prepareLayoutBorder() {
         mainFrame = new JFrame("Music Catalogue");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(800, 600);
+        mainFrame.setSize(600, 400);
         mainFrame.setLayout(new BorderLayout());
 
         mainFrame.setVisible(true);
@@ -38,7 +38,7 @@ public class MusicCatalogue {
         // Top Panel (NORTH) - Title
         JPanel topPanel = new JPanel();
         topPanel.setBackground(new Color(217,217,217));
-        topPanel.setPreferredSize(new Dimension(800, 50));
+        topPanel.setPreferredSize(new Dimension(600, 50));
         JLabel titleLabel = new JLabel("My Music Catalogue");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         topPanel.add(titleLabel);
@@ -111,7 +111,7 @@ public class MusicCatalogue {
         // Labels
         JLabel artistLabel = new JLabel("Artist Name:");
         JLabel studioLabel = new JLabel("Recording Studio:");
-        JLabel genreLabel = new JLabel("Genre:");
+        JLabel genreLabel = new JLabel("Category:");
         JLabel availableLabel = new JLabel("Available:");
 
         // Inputs
