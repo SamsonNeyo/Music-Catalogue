@@ -8,7 +8,6 @@ public class MusicCatalogue {
     private JPanel sidePanel, bottomPanel,centerPanel;
     private String[] categories = {"Reggae", "Ballads", "Rap"};
     private JButton submitButton, exitButton;
-    private JTextField artistField,studioField;
     private JComboBox<String> genreDropdown;
     private JCheckBox availableCheckBox;
 
