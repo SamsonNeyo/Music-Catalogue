@@ -2,15 +2,15 @@ package Music_CataloguePackage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MusicCatalogue {
     private JFrame mainFrame;
-    private final String[] categories = {"Reggae", "Ballads", "Rap"};
-    private JTextField artistField, studioField;
+    private JPanel sidePanel, bottomPanel,centerPanel;
+    private String[] categories = {"Reggae", "Ballads", "Rap"};
+    private JButton submitButton, exitButton;
     private JComboBox<String> genreDropdown;
     private JCheckBox availableCheckBox;
+    private JTextField artistField, studioField;
 
 
     public MusicCatalogue() {
@@ -46,7 +46,7 @@ public class MusicCatalogue {
     }
 
     public JFrame prepareSidePanel(){
-        JPanel sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
+        sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
         sidePanel.setBackground(new Color(255, 255, 233));
         sidePanel.setPreferredSize(new Dimension(100, 5));
         for (String category : categories) {
@@ -60,10 +60,10 @@ public class MusicCatalogue {
         return mainFrame;
     }
     public JFrame prepareBottomPanel() {
-        JPanel bottomPanel = new JPanel();
+        bottomPanel = new JPanel();
         bottomPanel.setBackground(new Color(217,  217,217));
-        JButton submitButton = new JButton("Submit");
-        JButton exitButton = new JButton("Exit");
+        submitButton = new JButton("Submit");
+        exitButton = new JButton("Exit");
         bottomPanel.setPreferredSize(new Dimension(800, 55));
         submitButton.setBackground(new Color(3, 60, 91));
         submitButton.setForeground(Color.WHITE);
@@ -78,34 +78,16 @@ public class MusicCatalogue {
         bottomPanel.add(submitButton);
         bottomPanel.add(exitButton);
         mainFrame.add(bottomPanel, BorderLayout.SOUTH);
-
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String artistName = artistField.getText();
-                String studioName = studioField.getText();
-                String genre = (String) genreDropdown.getSelectedItem();
-                boolean isAvailable = availableCheckBox.isSelected();
-
-                System.out.println("Artist Name: " + artistName);
-                System.out.println("Recording Studio: " + studioName);
-                System.out.println("Genre: " + genre);
-                System.out.println("Available: " + isAvailable);
-            }
-        });
-
-
     return mainFrame;
-
     }
     public void prepareCenterPanel() {
-        JPanel centerPanel = new JPanel(new GridLayout(4, 2, 10, 10));
+        centerPanel = new JPanel(new GridLayout(4, 2, 10, 10));
         centerPanel.setBackground(new Color(10, 50, 80)); // Darker Blue
 
         // Labels
         JLabel artistLabel = new JLabel("Artist Name:");
         JLabel studioLabel = new JLabel("Recording Studio:");
-        JLabel genreLabel = new JLabel("Category:");
+        JLabel genreLabel = new JLabel("Genre:");
         JLabel availableLabel = new JLabel("Available:");
 
         // Inputs
