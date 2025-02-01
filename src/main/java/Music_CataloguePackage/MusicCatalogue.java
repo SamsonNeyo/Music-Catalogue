@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MusicCatalogue {
-    private JFrame mainFrame;
+    JFrame mainFrame;
     private JPanel sidePanel, bottomPanel,centerPanel;
     private String[] categories = {"Reggae", "Ballads", "Rap"};
     private JButton submitButton, exitButton;

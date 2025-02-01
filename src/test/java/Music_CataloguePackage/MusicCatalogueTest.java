@@ -89,7 +89,28 @@ class MusicCatalogueTest {
         assertEquals(new Color(3, 60, 91), exitButton.getBackground(), "Exit button should have correct background color");
         assertEquals(Color.WHITE, exitButton.getForeground(), "Exit button should have correct text color");
     }
+
+    @Test
+    void prepareCenterPanel() {
+        musicCatalogue.prepareCenterPanel();
+        JPanel centerPanel = (JPanel) musicCatalogue.mainFrame.getContentPane().getComponent(3);
+        assertNotNull(centerPanel, "Center panel should not be null");
+        assertEquals(new Color(10, 50, 80), centerPanel.getBackground(), "Center panel should have the correct background color");
+
+        Component[] components = centerPanel.getComponents();
+        assertEquals(8, components.length, "Center panel should contain 8 components");
+
+        assertTrue(components[0] instanceof JLabel && ((JLabel) components[0]).getText().equals("Artist Name:"), "First label should be 'Artist Name'");
+        assertTrue(components[1] instanceof JTextField, "Second component should be a JTextField");
+        assertTrue(components[2] instanceof JLabel && ((JLabel) components[2]).getText().equals("Recording Studio:"), "Third label should be 'Recording Studio'");
+        assertTrue(components[3] instanceof JTextField, "Fourth component should be a JTextField");
+        assertTrue(components[4] instanceof JLabel && ((JLabel) components[4]).getText().equals("Genre:"), "Fifth label should be 'Genre'");
+        assertTrue(components[5] instanceof JComboBox, "Sixth component should be a JComboBox");
+        assertTrue(components[6] instanceof JLabel && ((JLabel) components[6]).getText().equals("Available:"), "Seventh label should be 'Available'");
+        assertTrue(components[7] instanceof JCheckBox, "Eighth component should be a JCheckBox");
+    }
 }
+
 
 
 
