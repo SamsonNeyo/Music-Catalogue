@@ -2,13 +2,7 @@
 
      agent any
 
-     environment {
-             // Define the email recipients
-             RECIPIENTS = 'onyangosamsonobur@gmail.com' ,
-                           'natnaelalemtsge@gmail.com' ,
-                            'adiljacobfrancis@gmail.com',
-                             'samuelkhamis06@gmail.com'
-         }
+
 
      stages {
 
@@ -42,25 +36,6 @@
 
          }
 
-              stage('Send Email Notification')
-              {
-                      steps {
-                          script {
-                              // Send email notification based on test result
-                              def subject = currentBuild.result == 'SUCCESS' ? 'Test Passed' : 'Test Failed'
-                              def body = "The test has ${currentBuild.result.toLowerCase()}."
-
-                              // Use Email Extension Plugin to send the email
-                              emailtext (
-                                  to: RECIPIENTS,
-                                  subject: subject,
-                                  body: body,
-                                  mimeType: 'text/html'
-                              )
-                          }
-                      }
-
-              }
 
 
      }
