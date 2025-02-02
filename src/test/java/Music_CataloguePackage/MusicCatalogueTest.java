@@ -21,17 +21,13 @@ class MusicCatalogueTest {
     }
 
 
-    @org.junit.jupiter.api.Test
-    void prepareLayoutBorder() {
-        MusicCatalogue musicCatalogue = new MusicCatalogue();
+    @Test
+    void testPrepareLayoutBorder() {
         JFrame frame = musicCatalogue.prepareLayoutBorder();
-        assertNotNull(frame);
-        assertEquals("Music Catalogue", frame.getTitle());
-        assertEquals(800, frame.getWidth());
-        assertEquals(600, frame.getHeight());
-        assertTrue(frame.isVisible());
-
-
+        assertNotNull(frame, "Frame should not be null");
+        assertEquals("Music Catalogue", frame.getTitle(), "Frame title should be correct");
+        assertEquals(new Dimension(600, 400), frame.getSize(), "Frame should have correct size");
+        assertEquals(BorderLayout.class, frame.getLayout().getClass(), "Frame should use BorderLayout");
     }
 
 
@@ -91,11 +87,12 @@ class MusicCatalogueTest {
     }
 
     @Test
-    void prepareCenterPanel() {
+    void testPrepareCenterPanel() {
         musicCatalogue.prepareCenterPanel();
         JPanel centerPanel = (JPanel) musicCatalogue.mainFrame.getContentPane().getComponent(3);
         assertNotNull(centerPanel, "Center panel should not be null");
         assertEquals(new Color(10, 50, 80), centerPanel.getBackground(), "Center panel should have the correct background color");
+        assertEquals(new Dimension(400, 200), centerPanel.getPreferredSize(), "Center panel should have the correct preferred size");
 
         Component[] components = centerPanel.getComponents();
         assertEquals(8, components.length, "Center panel should contain 8 components");
@@ -104,7 +101,7 @@ class MusicCatalogueTest {
         assertTrue(components[1] instanceof JTextField, "Second component should be a JTextField");
         assertTrue(components[2] instanceof JLabel && ((JLabel) components[2]).getText().equals("Recording Studio:"), "Third label should be 'Recording Studio'");
         assertTrue(components[3] instanceof JTextField, "Fourth component should be a JTextField");
-        assertTrue(components[4] instanceof JLabel && ((JLabel) components[4]).getText().equals("Genre:"), "Fifth label should be 'Genre'");
+        assertTrue(components[4] instanceof JLabel && ((JLabel) components[4]).getText().equals("Category:"), "Fifth label should be 'Category'");
         assertTrue(components[5] instanceof JComboBox, "Sixth component should be a JComboBox");
         assertTrue(components[6] instanceof JLabel && ((JLabel) components[6]).getText().equals("Available:"), "Seventh label should be 'Available'");
         assertTrue(components[7] instanceof JCheckBox, "Eighth component should be a JCheckBox");

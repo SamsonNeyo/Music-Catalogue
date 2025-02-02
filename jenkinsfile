@@ -2,6 +2,8 @@
 
      agent any
 
+
+
      stages {
 
          stage('Checkout') {        // this stage fetches the source code form github
@@ -23,15 +25,18 @@
                  sh 'mvn test'
              }
 
-             post {
-                 success {
-                     junit '**/target/surefire-reports/*.xml' // Publish JUnit test results
-                 }
-                 failure {
-                     echo 'Tests failed! Check the test reports for details.'
-                 }
-             }
+             //post {
+             //  success {
+             //    junit '**/target/surefire-reports/*.xml' // Publish JUnit test results
+             //}
+             //failure {
+             //    echo 'Tests failed! Check the test reports for details.'
+             //     }
+            // }
+
          }
+
+
 
      }
  }
