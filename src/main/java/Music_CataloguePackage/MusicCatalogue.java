@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MusicCatalogue {
-    private JFrame mainFrame;
+
+    public JFrame mainFrame;
+
     private JPanel sidePanel, bottomPanel, centerPanel;
     private String[] categories = {"Reggae", "Ballads", "Rap"};
     private JButton submitButton, exitButton;
