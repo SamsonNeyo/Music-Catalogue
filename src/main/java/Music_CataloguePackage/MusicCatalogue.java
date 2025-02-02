@@ -43,7 +43,11 @@ public class MusicCatalogue {
     public JFrame prepareSidePanel(){
         sidePanel = new JPanel(new GridLayout(3, 1, 10, 10));
         sidePanel.setBackground(new Color(255, 255, 233));
+<<<<<<< HEAD
         sidePanel.setPreferredSize(new Dimension(100, 5));
+=======
+
+>>>>>>> parent of e16c1af (sidePanel has been added width 100 and height of 2)
         for (String category : categories) {
             JButton btn = new JButton(category);
             btn.setBackground(new Color(10, 50, 80));
