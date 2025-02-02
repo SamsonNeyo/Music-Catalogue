@@ -30,7 +30,7 @@ class MusicCatalogueTest {
         assertEquals(BorderLayout.class, frame.getLayout().getClass(), "Frame should use BorderLayout");
     }
 
-
+ 
 
     @Test
 
